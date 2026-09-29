@@ -1,0 +1,7 @@
+{
+  "name": "Tarea3-Ionic-Base",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
