@@ -1,0 +1,138 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <div class="header-brand">
+      <span class="brand-mark">GR</span>
+      <span class="brand-number">01</span>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="sumadora-content">
+
+  <main class="calculator-page">
+
+    <!-- INTRO -->
+    <section class="page-intro">
+      <div class="intro-number">01</div>
+
+      <div class="intro-copy">
+        <span class="eyebrow">HERRAMIENTA · MATEMÁTICAS</span>
+
+        <h1>Sumadora</h1>
+
+        <p>
+          Introduce dos valores y obtén el resultado
+          de su suma de forma inmediata.
+        </p>
+      </div>
+    </section>
+
+    <!-- CALCULADORA -->
+    <section class="calculator-layout">
+
+      <div class="calculator-card">
+
+        <div class="card-heading">
+          <span>OPERACIÓN</span>
+          <span>01 / 04</span>
+        </div>
+
+        <div class="inputs-grid">
+
+          <div class="field-group">
+            <label for="numero1">Primer número</label>
+
+            <input
+              id="numero1"
+              type="number"
+              [(ngModel)]="numero1"
+              placeholder="0"
+            >
+          </div>
+
+          <div class="operator">
+            <span>+</span>
+          </div>
+
+          <div class="field-group">
+            <label for="numero2">Segundo número</label>
+
+            <input
+              id="numero2"
+              type="number"
+              [(ngModel)]="numero2"
+              placeholder="0"
+            >
+          </div>
+
+        </div>
+
+        <p
+          class="error-message"
+          *ngIf="mostrarError"
+        >
+          Completa ambos campos para realizar la suma.
+        </p>
+
+        <div class="actions">
+          <button
+            type="button"
+            class="primary-button"
+            (click)="sumar()"
+          >
+            Calcular suma
+          </button>
+
+          <button
+            type="button"
+            class="secondary-button"
+            (click)="limpiar()"
+          >
+            Limpiar
+          </button>
+        </div>
+
+      </div>
+
+      <!-- RESULTADO -->
+      <aside
+        class="result-card"
+        [class.has-result]="resultado !== null"
+      >
+
+        <span class="result-label">RESULTADO</span>
+
+        <div class="result-value">
+          {{ resultado !== null ? resultado : '—' }}
+        </div>
+
+        <div class="result-line"></div>
+
+        <p *ngIf="resultado === null">
+          El resultado de la operación aparecerá aquí.
+        </p>
+
+        <p *ngIf="resultado !== null">
+          {{ numero1 }} + {{ numero2 }} = {{ resultado }}
+        </p>
+
+      </aside>
+
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <section class="page-footer">
+      <a routerLink="/home">
+        ← Volver al inicio
+      </a>
+
+      <span>APLICACIONES MÓVILES · 2026</span>
+    </section>
+
+  </main>
+
+</ion-content>

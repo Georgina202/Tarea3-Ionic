@@ -1,3 +1,12 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-menu
+    contentId="main-content"
+    type="overlay"
+  >
+    <app-menu></app-menu>
+  </ion-menu>
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+
 </ion-app>

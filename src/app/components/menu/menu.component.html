@@ -1,0 +1,62 @@
+<div class="menu-wrapper">
+
+  <div class="menu-brand">
+    <div class="brand-monogram">GR</div>
+
+    <div class="brand-text">
+      <span class="brand-name">GEORGINA</span>
+      <span class="brand-subtitle">Student Toolkit</span>
+    </div>
+  </div>
+
+  <div class="menu-divider"></div>
+
+  <p class="menu-section-title">NAVEGACIÓN</p>
+
+  <ion-list class="menu-list" lines="none">
+
+    @for (item of menuItems; track item.route) {
+
+      <ion-menu-toggle auto-hide="false">
+
+        <ion-item
+          class="menu-item"
+          [routerLink]="item.route"
+          routerLinkActive="active-menu-item"
+          detail="false"
+          button
+        >
+
+          <div class="menu-icon" slot="start">
+            <ion-icon [name]="item.icon"></ion-icon>
+          </div>
+
+          <ion-label>
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.subtitle }}</p>
+          </ion-label>
+
+          <span class="menu-arrow" slot="end">→</span>
+
+        </ion-item>
+
+      </ion-menu-toggle>
+
+    }
+
+  </ion-list>
+
+  <div class="menu-footer">
+    <div class="footer-line"></div>
+
+    <div class="footer-content">
+      <span>GR</span>
+
+      <div>
+        <strong>2024-0032</strong>
+        <small>Aplicaciones Móviles</small>
+      </div>
+    </div>
+  </div>
+
+</div>

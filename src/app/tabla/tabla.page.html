@@ -1,0 +1,190 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <div class="header-brand">
+      <span class="brand-mark">GR</span>
+      <span class="brand-number">03</span>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="table-content">
+
+  <main class="table-page">
+
+    <!-- INTRO -->
+    <section class="page-intro">
+
+      <div class="intro-number">03</div>
+
+      <div class="intro-copy">
+        <span class="eyebrow">HERRAMIENTA · MATEMÁTICAS</span>
+
+        <h1>Tabla de<br>multiplicar</h1>
+
+        <p>
+          Introduce un número y genera automáticamente
+          su tabla de multiplicar desde el 1 hasta el 13.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ÁREA PRINCIPAL -->
+    <section class="table-layout">
+
+      <!-- PANEL DE CONTROL -->
+      <div class="control-card">
+
+        <div class="card-heading">
+          <span>GENERADOR</span>
+          <span>03 / 04</span>
+        </div>
+
+        <div class="field-group">
+
+          <label for="numeroTabla">
+            Número
+          </label>
+
+          <input
+            id="numeroTabla"
+            type="number"
+            [(ngModel)]="numero"
+            placeholder="Ej. 7"
+          >
+
+          <span class="field-note">
+            Se generarán 13 operaciones
+          </span>
+
+        </div>
+
+        <p
+          class="error-message"
+          *ngIf="mostrarError"
+        >
+          {{ mensajeError }}
+        </p>
+
+        <div class="actions">
+
+          <button
+            type="button"
+            class="primary-button"
+            (click)="generarTabla()"
+          >
+            Generar tabla
+          </button>
+
+          <button
+            type="button"
+            class="secondary-button"
+            (click)="limpiar()"
+          >
+            Limpiar
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- TABLA -->
+      <div
+        class="multiplication-card"
+        [class.has-table]="tabla.length > 0"
+      >
+
+        <div class="table-header">
+
+          <div>
+            <span class="table-label">RESULTADOS</span>
+
+            <h2 *ngIf="tabla.length > 0">
+              Tabla del {{ numero }}
+            </h2>
+
+            <h2 *ngIf="tabla.length === 0">
+              Tabla
+            </h2>
+          </div>
+
+          <span class="table-range">01 — 13</span>
+
+        </div>
+
+        <!-- ESTADO VACÍO -->
+        <div
+          class="empty-table"
+          *ngIf="tabla.length === 0"
+        >
+          <span class="empty-symbol">×</span>
+
+          <p>
+            Introduce un número para visualizar
+            aquí su tabla de multiplicar.
+          </p>
+        </div>
+
+        <!-- RESULTADOS -->
+        <div
+          class="table-grid"
+          *ngIf="tabla.length > 0"
+        >
+
+          <div
+            class="table-row"
+            *ngFor="let fila of tabla"
+          >
+
+            <span class="row-index">
+              {{ fila.multiplicador < 10 ? '0' + fila.multiplicador : fila.multiplicador }}
+            </span>
+
+            <div class="operation">
+              <span class="base-number">{{ numero }}</span>
+              <span class="symbol">×</span>
+              <span>{{ fila.multiplicador }}</span>
+              <span class="symbol">=</span>
+              <strong>{{ fila.resultado }}</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- INFO -->
+    <section class="table-info">
+
+      <span>MÉTODO</span>
+
+      <p>
+        Cada resultado se calcula localmente multiplicando
+        el número introducido por los valores del 1 al 13.
+      </p>
+
+      <span class="local-badge">13 OPERACIONES</span>
+
+    </section>
+
+    <!-- FOOTER -->
+    <section class="page-footer">
+
+      <a routerLink="/home">
+        ← Volver al inicio
+      </a>
+
+      <span>APLICACIONES MÓVILES · 2026</span>
+
+    </section>
+
+  </main>
+
+</ion-content>

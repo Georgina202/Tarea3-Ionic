@@ -1,0 +1,616 @@
+:host {
+  --navy: #0d1b2a;
+  --navy-soft: #172a42;
+  --blue: #31577f;
+  --blue-light: #8ea7c2;
+  --ivory: #f5f1e8;
+  --cream: #ebe3d4;
+  --gold: #b99a61;
+  --text: #17202a;
+  --muted: #6d7378;
+  --border: rgba(13, 27, 42, 0.16);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.app-header {
+  box-shadow: none;
+
+  ion-toolbar {
+    --background: var(--ivory);
+    --border-color: rgba(13, 27, 42, 0.12);
+    --border-width: 0 0 1px 0;
+    --min-height: 68px;
+    --padding-start: 18px;
+    --padding-end: 24px;
+  }
+
+  ion-menu-button {
+    --color: var(--navy);
+  }
+}
+
+.header-brand {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  color: var(--navy);
+}
+
+.brand-mark {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.brand-number {
+  padding-left: 14px;
+  border-left: 1px solid rgba(13, 27, 42, 0.25);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+
+  color: var(--gold);
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.sumadora-content {
+  --background: var(--ivory);
+}
+
+.calculator-page {
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 70px 0 42px;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.page-intro {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 42px;
+
+  max-width: 850px;
+  margin-bottom: 58px;
+}
+
+.intro-number {
+  padding-top: 8px;
+
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  font-style: italic;
+
+  color: var(--gold);
+}
+
+.intro-copy {
+  position: relative;
+}
+
+.intro-copy::before {
+  content: '';
+  position: absolute;
+
+  left: -22px;
+  top: 5px;
+
+  width: 1px;
+  height: 100%;
+
+  background: var(--gold);
+  opacity: 0.65;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 14px;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+
+  color: var(--blue);
+}
+
+.intro-copy h1 {
+  margin: 0 0 14px;
+
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(44px, 6vw, 76px);
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+
+  color: var(--navy);
+}
+
+.intro-copy p {
+  max-width: 560px;
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 1.75;
+
+  color: var(--muted);
+}
+
+/* =========================
+   CALCULATOR LAYOUT
+========================= */
+
+.calculator-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.75fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* =========================
+   CALCULATOR CARD
+========================= */
+
+.calculator-card {
+  padding: 38px;
+
+  background: #fbf9f4;
+  border: 1px solid var(--border);
+}
+
+.card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 18px;
+  margin-bottom: 42px;
+
+  border-bottom: 1px solid var(--border);
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+
+  color: var(--blue);
+}
+
+.card-heading span:last-child {
+  color: var(--gold);
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 58px 1fr;
+  gap: 22px;
+  align-items: end;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.field-group label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  color: var(--navy);
+}
+
+.field-group input {
+  width: 100%;
+  height: 76px;
+
+  padding: 0 20px;
+
+  border: 1px solid rgba(13, 27, 42, 0.22);
+  border-radius: 0;
+  outline: none;
+
+  background: var(--ivory);
+
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 30px;
+
+  color: var(--navy);
+
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.field-group input::placeholder {
+  color: rgba(13, 27, 42, 0.25);
+}
+
+.field-group input:focus {
+  border-color: var(--gold);
+  background: #ffffff;
+
+  box-shadow: inset 0 -2px 0 var(--gold);
+}
+
+.operator {
+  height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.operator span {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 34px;
+  font-weight: 400;
+
+  color: var(--gold);
+}
+
+/* =========================
+   INPUT NUMBER
+   Quitar flechas del navegador
+========================= */
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.error-message {
+  margin: 18px 0 0;
+  padding: 12px 14px;
+
+  border-left: 2px solid #9a4d46;
+
+  background: rgba(154, 77, 70, 0.06);
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #7d3e38;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.actions {
+  display: flex;
+  gap: 12px;
+
+  margin-top: 36px;
+}
+
+.actions button {
+  min-height: 52px;
+  padding: 0 24px;
+
+  border-radius: 0;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+.actions button:active {
+  transform: scale(0.98);
+}
+
+.primary-button {
+  flex: 1;
+
+  border: 1px solid var(--navy);
+
+  background: var(--navy);
+  color: var(--ivory);
+}
+
+.primary-button:hover {
+  background: var(--navy-soft);
+}
+
+.secondary-button {
+  border: 1px solid rgba(13, 27, 42, 0.28);
+
+  background: transparent;
+  color: var(--navy);
+}
+
+.secondary-button:hover {
+  border-color: var(--gold);
+  color: #8c713f;
+}
+
+/* =========================
+   RESULT
+========================= */
+
+.result-card {
+  min-height: 330px;
+  padding: 38px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: var(--navy);
+  color: var(--ivory);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.result-card::after {
+  content: 'Σ';
+
+  position: absolute;
+  right: -8px;
+  bottom: -48px;
+
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 190px;
+  line-height: 1;
+
+  color: rgba(255, 255, 255, 0.035);
+
+  pointer-events: none;
+}
+
+.result-label {
+  position: relative;
+  z-index: 1;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+
+  color: var(--blue-light);
+}
+
+.result-value {
+  position: relative;
+  z-index: 1;
+
+  margin: 28px 0 22px;
+
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(58px, 8vw, 92px);
+  line-height: 1;
+  font-weight: 400;
+
+  color: var(--ivory);
+
+  overflow-wrap: anywhere;
+}
+
+.result-line {
+  position: relative;
+  z-index: 1;
+
+  width: 46px;
+  height: 1px;
+  margin-bottom: 20px;
+
+  background: var(--gold);
+
+  transition: width 300ms ease;
+}
+
+.result-card.has-result .result-line {
+  width: 100%;
+}
+
+.result-card p {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  font-size: 12px;
+  line-height: 1.7;
+
+  color: rgba(245, 241, 232, 0.62);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 36px;
+  padding-top: 22px;
+
+  border-top: 1px solid var(--border);
+}
+
+.page-footer a {
+  color: var(--navy);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+
+  transition: color 160ms ease;
+}
+
+.page-footer a:hover {
+  color: var(--gold);
+}
+
+.page-footer span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+
+  color: var(--muted);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .calculator-page {
+    width: min(100% - 40px, 760px);
+    padding-top: 48px;
+  }
+
+  .page-intro {
+    grid-template-columns: 55px 1fr;
+    gap: 24px;
+
+    margin-bottom: 42px;
+  }
+
+  .calculator-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .result-card {
+    min-height: 260px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 560px) {
+
+  .app-header ion-toolbar {
+    --min-height: 60px;
+    --padding-start: 8px;
+    --padding-end: 16px;
+  }
+
+  .header-brand {
+    right: 16px;
+  }
+
+  .calculator-page {
+    width: calc(100% - 30px);
+    padding: 36px 0 28px;
+  }
+
+  .page-intro {
+    display: block;
+    margin-bottom: 32px;
+  }
+
+  .intro-number {
+    margin-bottom: 16px;
+    padding: 0;
+  }
+
+  .intro-copy::before {
+    display: none;
+  }
+
+  .intro-copy h1 {
+    font-size: 48px;
+  }
+
+  .intro-copy p {
+    font-size: 13px;
+  }
+
+  .calculator-card {
+    padding: 24px 18px;
+  }
+
+  .card-heading {
+    margin-bottom: 28px;
+  }
+
+  .inputs-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .operator {
+    height: 26px;
+  }
+
+  .operator span {
+    font-size: 28px;
+  }
+
+  .field-group input {
+    height: 66px;
+    font-size: 27px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+  .result-card {
+    min-height: 250px;
+    padding: 28px 24px;
+  }
+
+  .result-value {
+    font-size: 64px;
+  }
+
+  .page-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

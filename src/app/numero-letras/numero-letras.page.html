@@ -1,0 +1,169 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <div class="header-brand">
+      <span class="brand-mark">GR</span>
+      <span class="brand-number">02</span>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="translator-content">
+
+  <main class="translator-page">
+
+    <!-- INTRODUCCIÓN -->
+    <section class="page-intro">
+
+      <div class="intro-number">02</div>
+
+      <div class="intro-copy">
+        <span class="eyebrow">HERRAMIENTA · CONVERSIÓN</span>
+
+        <h1>Número<br>a letras</h1>
+
+        <p>
+          Introduce un número entero entre 1 y 1000
+          y descubre cómo se escribe correctamente en español.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- TRADUCTOR -->
+    <section class="translator-layout">
+
+      <div class="translator-card">
+
+        <div class="card-heading">
+          <span>CONVERSIÓN</span>
+          <span>02 / 04</span>
+        </div>
+
+        <div class="field-group">
+
+          <div class="field-header">
+            <label for="numero">Número</label>
+            <span>RANGO · 1 — 1000</span>
+          </div>
+
+          <input
+            id="numero"
+            type="number"
+            min="1"
+            max="1000"
+            step="1"
+            [(ngModel)]="numero"
+            placeholder="Ej. 526"
+          >
+
+        </div>
+
+        <p
+          class="error-message"
+          *ngIf="mostrarError"
+        >
+          {{ mensajeError }}
+        </p>
+
+        <div class="actions">
+
+          <button
+            type="button"
+            class="primary-button"
+            (click)="convertir()"
+          >
+            Convertir número
+          </button>
+
+          <button
+            type="button"
+            class="secondary-button"
+            (click)="limpiar()"
+          >
+            Limpiar
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- RESULTADO -->
+      <aside
+        class="result-card"
+        [class.has-result]="resultado"
+      >
+
+        <div class="result-top">
+          <span class="result-label">EN LETRAS</span>
+          <span class="result-index">ES</span>
+        </div>
+
+        <div
+          class="result-word"
+          *ngIf="resultado"
+        >
+          {{ resultado }}
+        </div>
+
+        <div
+          class="empty-result"
+          *ngIf="!resultado"
+        >
+          <span>Aa</span>
+
+          <p>
+            La representación escrita del número
+            aparecerá en este espacio.
+          </p>
+        </div>
+
+        <div class="result-bottom">
+
+          <div class="result-line"></div>
+
+          <p *ngIf="resultado">
+            {{ numero }} → {{ resultado }}
+          </p>
+
+          <p *ngIf="!resultado">
+            CONVERSIÓN LOCAL · SIN API
+          </p>
+
+        </div>
+
+      </aside>
+
+    </section>
+
+    <!-- EJEMPLOS -->
+    <section class="examples">
+
+      <span class="examples-title">REFERENCIAS</span>
+
+      <div class="examples-list">
+        <span>21 · veintiuno</span>
+        <span>100 · cien</span>
+        <span>526 · quinientos veintiséis</span>
+        <span>1000 · mil</span>
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <section class="page-footer">
+
+      <a routerLink="/home">
+        ← Volver al inicio
+      </a>
+
+      <span>APLICACIONES MÓVILES · 2026</span>
+
+    </section>
+
+  </main>
+
+</ion-content>
